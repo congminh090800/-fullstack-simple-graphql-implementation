@@ -4,7 +4,6 @@ import { Row, Col, Table } from 'reactstrap';
 function RenderItem({item}){
     return(
         <>
-          <td>{item._id}</td>
           <td>{item.name}</td>
           {item.__typename==="Neighborhood"?<td><a href={`/${item._id}`}>See</a></td>:null}
           {item.__typename==="Restaurant"?(<><td>{item.borough}</td>
@@ -35,16 +34,16 @@ const Data=(props)=>{
         });
         return(
             <>
-                {(pageData.searchDocs && pageData.searchDocs.docs[0] && pageData.searchDocs.docs[0].__typename==="Restaurant") || pageData.restaurants?<h3>RESTAURANTS</h3>:null}
+                {(pageData.searchDocs && pageData.searchDocs.docs[0] && pageData.searchDocs.docs[0].__typename==="Restaurant") || (pageData.docs && pageData.docs[0] && pageData.docs[0].__typename==="Restaurant") || pageData.restaurants?<h3>RESTAURANTS</h3>:null}
                 {(pageData.searchDocs && pageData.searchDocs.docs[0] && pageData.searchDocs.docs[0].__typename==="Neighborhood") || pageData.neighborhoods?<h3>NEIGHBORHOODS</h3>:null}
                 <Table>
                 <thead>
                     <tr>
-                    <th>ID</th>
                     <th>NAME</th>
                     {(pageData.searchDocs && pageData.searchDocs.docs[0] && pageData.searchDocs.docs[0].__typename==="Neighborhood") ||pageData.neighborhoods?<th>DISCOVER</th>:null}
                     {(pageData.searchDocs && pageData.searchDocs.docs[0]
                      && pageData.searchDocs.docs[0].__typename==="Restaurant")
+                    || (pageData.docs && pageData.docs[0] && pageData.docs[0].__typename==="Restaurant")
                       || pageData.restaurants?(<><th>BOROUGH</th>
                                                 <th>ZIPCODE</th>
                                                 <th>STREET</th>

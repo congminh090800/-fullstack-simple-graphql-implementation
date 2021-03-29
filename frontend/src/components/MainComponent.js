@@ -9,7 +9,7 @@ import Loading from './LoadingComponent';
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 const initialPage={
-  limit:20,
+  limit:10,
   page:1,
   keyword:"",
   type:"Restaurant",
@@ -59,7 +59,7 @@ const Home=()=>{
     if (values) setSearching(true); else{
       setSearching(false);
     }
-    setPageInfo({...pageInfo,type:dataType,keyword:values});
+    setPageInfo({...pageInfo,type:dataType,keyword:values,page:1});
   }
   if((dataType==="Restaurant" && restaurantLoading) || (dataType==="Neighborhood" && neighborhoodLoading) || docs.loading){
     return (

@@ -1,0 +1,24 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently --kill-others -n 'frontend,backend' -p -c 'green.bold,cyan.bold' \"cd frontend && npm start\" \"cd backend && npm run dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/congminh090800/-fullstack-simple-graphql-implementation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/congminh090800/-fullstack-simple-graphql-implementation/issues"
+  },
+  "homepage": "https://github.com/congminh090800/-fullstack-simple-graphql-implementation#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  }
+}
